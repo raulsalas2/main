@@ -74,3 +74,31 @@ body {
   padding: 1rem;
   border-radius: 0.5rem;
 }
+
+
+html.space.easy { ... }
+html.space.medium { ... }
+html.desert.easy { ... }
+
+
+document.documentElement.className = theme;
+
+
+function setTheme(theme: string, mode: string) {
+  document.documentElement.className = `${theme} ${mode}`;
+  localStorage.setItem('theme', theme);
+  localStorage.setItem('mode', mode);
+}
+
+
+
+const currentTheme = localStorage.getItem('theme') || 'default';
+setTheme(currentTheme, 'hard'); // example: hard mode
+
+
+html.space.challenge {
+  --background: url('/images/space-challenge.jpg') no-repeat center/cover;
+}
+body {
+  background: var(--background);
+}
